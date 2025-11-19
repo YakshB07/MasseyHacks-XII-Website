@@ -217,7 +217,7 @@ function App() {
             <a href="#about" className="text-white hover:text-cyan-200 transition-colors font-semibold drop-shadow-md text-xs sm:text-sm md:text-base">About</a>
             <a href="#gallery" className="text-white hover:text-cyan-200 transition-colors font-semibold drop-shadow-md text-xs sm:text-sm md:text-base">Gallery</a>
             <a href="#faq" className="text-white hover:text-cyan-200 transition-colors font-semibold drop-shadow-md text-xs sm:text-sm md:text-base">FAQ</a>
-            <a href="#sponsors" className="text-white hover:text-cyan-200 transition-colors font-semibold drop-shadow-md text-xs sm:text-sm md:text-base hidden xs:inline">Sponsors</a>
+            <a href="#sponsors" className="text-white hover:text-cyan-200 transition-colors font-semibold drop-shadow-md text-xs sm:text-sm md:text-base">Sponsors</a>
           </div>
         </div>
       </nav>
@@ -306,32 +306,25 @@ function App() {
 
         {/* About Section */}
         <section id="about" ref={aboutRef} className="relative py-16 sm:py-20 md:py-28 px-3 sm:px-4 md:px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-10 sm:mb-14 md:mb-20 drop-shadow-lg px-2">About MasseyHacks</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
-            <div className="about-card bg-white/10 backdrop-blur-lg rounded-xl sm:rounded-2xl p-6 sm:p-7 md:p-9 border border-white/20 hover:bg-white/15 shadow-lg hover:shadow-xl transition-all">
-              <Calendar className="w-10 h-10 sm:w-11 sm:h-11 md:w-14 md:h-14 text-cyan-300 mb-3 sm:mb-4 md:mb-5" />
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4 drop-shadow-md">What is MasseyHacks</h3>
-              <p className="text-sm sm:text-base text-white/90 leading-relaxed">
-                MasseyHacks is a high school hackathon perfect for students fascinated by the world of technology. This 24-hour event is an opportunity for students to explore the realm of computer science and bring their creative ideas to life by developing a project of their own. Never written a line of code in your life? Already created a robot to do your homework? No matter your skill level, we invite you to join us as a hacker to participate in workshops, engage in countless activities, and meet other like-minded students! Create memories and guide the story of your STEM journey at MasseyHacks XI!              </p>
-            </div>
-            <div className="about-card bg-white/10 backdrop-blur-lg rounded-xl sm:rounded-2xl p-6 sm:p-7 md:p-9 border border-white/20 hover:bg-white/15 shadow-lg hover:shadow-xl transition-all">
-              <Users className="w-10 h-10 sm:w-11 sm:h-11 md:w-14 md:h-14 text-cyan-300 mb-3 sm:mb-4 md:mb-5" />
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4 drop-shadow-md">500+ Students</h3>
-              <p className="text-sm sm:text-base text-white/90 leading-relaxed">
-                Connect with over 500 passionate students from across the region. Network, collaborate, and make lasting friendships with like-minded innovators.
-              </p>
-            </div>
-            <div className="about-card bg-white/10 backdrop-blur-lg rounded-xl sm:rounded-2xl p-6 sm:p-7 md:p-9 border border-white/20 hover:bg-white/15 shadow-lg hover:shadow-xl transition-all">
-              <Trophy className="w-10 h-10 sm:w-11 sm:h-11 md:w-14 md:h-14 text-cyan-300 mb-3 sm:mb-4 md:mb-5" />
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4 drop-shadow-md">Amazing Prizes</h3>
-              <p className="text-sm sm:text-base text-white/90 leading-relaxed">
-                Compete for thousands of dollars in prizes, including the latest tech gadgets, exclusive swag, and opportunities to showcase your work to industry leaders.
-              </p>
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-10 sm:mb-14 md:mb-20 drop-shadow-lg px-2">About MasseyHacks</h2>
+            <div className="grid grid-cols-1 gap-5 sm:gap-6 md:gap-8 justify-center place-items-center w-fit mx-auto">
+              <div className="about-card bg-white/10 backdrop-blur-lg rounded-xl sm:rounded-2xl p-6 sm:p-7 md:p-9 border border-white/20 hover:bg-white/15 shadow-lg hover:shadow-xl transition-all mx-auto">
+                <Calendar className="w-10 h-10 sm:w-11 sm:h-11 md:w-14 md:h-14 text-cyan-300 mb-3 sm:mb-4 md:mb-5" />
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4 drop-shadow-md">What is MasseyHacks?</h3>
+                <p className="text-sm sm:text-base text-white/90 leading-relaxed">
+                  MasseyHacks is a high school hackathon perfect for students fascinated by the world of technology. This 24-hour event is an opportunity for students to explore the realm of computer science and bring their creative ideas to life by developing a project of their own. Never written a line of code in your life? Already created a robot to do your homework? No matter your skill level, we invite you to join us as a hacker to participate in workshops, engage in countless activities, and meet other like-minded students! Create memories and guide the story of your STEM journey at MasseyHacks XI!
+                </p>
+              </div>
             </div>
           </div>
-        </div>
         </section>
+
+
+
+
+
+
 
         {/* Carousel Section */}
         <section id="gallery" ref={carouselRef} className="relative py-16 sm:py-20 md:py-28 px-3 sm:px-4 md:px-6">

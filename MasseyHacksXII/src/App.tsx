@@ -206,9 +206,10 @@ function App() {
     return () => ctx.revert();
   }, [logoPopped]);
 
+  // Auto-scroll carousel with pause on user interaction
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!carouselScrollRef.current) return;
+      if (!carouselScrollRef.current || isUserInteracting) return;
 
       const el = carouselScrollRef.current;
       const scrollWidth = el.scrollWidth;
@@ -216,19 +217,37 @@ function App() {
       const halfWidth = scrollWidth / 2;
       const currentScroll = el.scrollLeft;
 
-      const target = currentScroll + clientWidth;
+      // Scroll by one image width for smoother progression
+      const imageWidth = clientWidth * 0.35; // Approximate image width
+      const target = currentScroll + imageWidth;
       el.scrollTo({ left: target, behavior: 'smooth' });
 
+      // Reset scroll position for infinite loop
       setTimeout(() => {
         if (!carouselScrollRef.current) return;
-        if (carouselScrollRef.current.scrollLeft >= halfWidth) {
-          carouselScrollRef.current.scrollLeft = carouselScrollRef.current.scrollLeft - halfWidth;
+        if (carouselScrollRef.current.scrollLeft >= halfWidth - clientWidth) {
+          carouselScrollRef.current.scrollTo({ left: 0, behavior: 'auto' });
         }
-      }, 520);
+      }, 600);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isUserInteracting]);
+
+  // Handle user interaction with carousel
+  const handleCarouselInteraction = () => {
+    setIsUserInteracting(true);
+    
+    // Clear existing timeout
+    if (interactionTimeoutRef.current) {
+      clearTimeout(interactionTimeoutRef.current);
+    }
+    
+    // Resume auto-scroll after 3 seconds of no interaction
+    interactionTimeoutRef.current = setTimeout(() => {
+      setIsUserInteracting(false);
+    }, 3000);
+  };
 
   const getBackgroundColor = () => {
     const colors = [

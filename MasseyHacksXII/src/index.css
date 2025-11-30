@@ -112,6 +112,4 @@ button, a {
   transform: translateY(-5px);
 }
 
-.faq-item:hover {
-  transform: translateX(5px);
-}
+/* Removed translateX on FAQ hover to prevent layout issues */

@@ -52,6 +52,8 @@ function App() {
   const sponsorsRef = useRef<HTMLElement>(null);
 
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  const [isUserInteracting, setIsUserInteracting] = useState<boolean>(false);
+  const interactionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   const imageSrcs = [
     new URL('./images/mhX1.webp', import.meta.url).href,

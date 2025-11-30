@@ -459,9 +459,12 @@ function App() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-8 sm:mb-12 md:mb-16 drop-shadow-lg" data-testid="gallery-title">Gallery</h2>
             <div
               ref={carouselScrollRef}
-              className="flex gap-3 sm:gap-4 md:gap-6 overflow-x-auto scroll-smooth pb-4 scrollbar-hide"
+              className="flex gap-3 sm:gap-4 md:gap-6 overflow-x-auto scroll-smooth pb-4 scrollbar-hide cursor-grab active:cursor-grabbing"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               data-testid="gallery-carousel"
+              onScroll={handleCarouselInteraction}
+              onMouseDown={handleCarouselInteraction}
+              onTouchStart={handleCarouselInteraction}
             >
               {Array.from({ length: carouselSlides * 2 }).map((_, i) => (
                 <div

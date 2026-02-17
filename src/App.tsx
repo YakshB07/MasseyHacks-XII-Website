@@ -40,6 +40,26 @@ interface FAQ {
   answer: React.ReactNode;
 }
 
+interface Sponsor {
+  id: string;
+  name: string;
+  logo: string;
+  tier: 'platinum' | 'gold' | 'silver';
+}
+
+const sponsors: Sponsor[] = [
+  { id: '1', name: 'Sponsor 1', logo: '', tier: 'platinum' },
+  { id: '2', name: 'Sponsor 2', logo: '', tier: 'platinum' },
+  { id: '3', name: 'Sponsor 3', logo: '', tier: 'gold' },
+  { id: '4', name: 'Sponsor 4', logo: '', tier: 'gold' },
+  { id: '5', name: 'Sponsor 5', logo: '', tier: 'gold' },
+  { id: '6', name: 'Sponsor 6', logo: '', tier: 'silver' },
+  { id: '7', name: 'Sponsor 7', logo: '', tier: 'silver' },
+  { id: '8', name: 'Sponsor 8', logo: '', tier: 'silver' },
+  { id: '9', name: 'Sponsor 9', logo: '', tier: 'silver' },
+  { id: '10', name: 'Sponsor 10', logo: '', tier: 'silver' },
+];
+
 
 function MLHTrustBadge() {
   const [top, setTop] = useState(0);
@@ -626,77 +646,59 @@ function App() {
             </p>
           </div>
 
-          {/* Tier 1 Sponsors - Largest */}
-          <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 md:gap-16 mb-12 sm:mb-16">
-            <div className="sponsor-card bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-white/15 transition-all w-64 sm:w-80 md:w-96 h-40 sm:h-48 md:h-56 flex items-center justify-center">
-              <div className="text-white/40 text-center">
-                <div className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">LOGO</div>
-                <div className="text-sm sm:text-base">Platinum Sponsor</div>
-              </div>
+          {/* Platinum Sponsors */}
+          {sponsors.filter(s => s.tier === 'platinum').length > 0 && (
+            <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 md:gap-16 mb-12 sm:mb-16">
+              {sponsors.filter(s => s.tier === 'platinum').map((sponsor) => (
+                <div key={sponsor.id} className="sponsor-card bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-white/15 transition-all w-64 sm:w-80 md:w-96 h-40 sm:h-48 md:h-56 flex items-center justify-center">
+                  {sponsor.logo ? (
+                    <img src={sponsor.logo} alt={sponsor.name} className="max-w-full max-h-full object-contain" />
+                  ) : (
+                    <div className="text-white/40 text-center">
+                      <div className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">LOGO</div>
+                      <div className="text-sm sm:text-base">{sponsor.name}</div>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-            <div className="sponsor-card bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-white/15 transition-all w-64 sm:w-80 md:w-96 h-40 sm:h-48 md:h-56 flex items-center justify-center">
-              <div className="text-white/40 text-center">
-                <div className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">LOGO</div>
-                <div className="text-sm sm:text-base">Platinum Sponsor</div>
-              </div>
-            </div>
-          </div>
+          )}
 
-          {/* Tier 2 Sponsors - Medium */}
-          <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-10 mb-10 sm:mb-12">
-            <div className="sponsor-card bg-white/10 backdrop-blur-md rounded-xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all w-48 sm:w-56 md:w-64 h-32 sm:h-36 md:h-40 flex items-center justify-center">
-              <div className="text-white/40 text-center">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">LOGO</div>
-                <div className="text-xs sm:text-sm">Gold Sponsor</div>
-              </div>
+          {/* Gold Sponsors */}
+          {sponsors.filter(s => s.tier === 'gold').length > 0 && (
+            <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-10 mb-10 sm:mb-12">
+              {sponsors.filter(s => s.tier === 'gold').map((sponsor) => (
+                <div key={sponsor.id} className="sponsor-card bg-white/10 backdrop-blur-md rounded-xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all w-48 sm:w-56 md:w-64 h-32 sm:h-36 md:h-40 flex items-center justify-center">
+                  {sponsor.logo ? (
+                    <img src={sponsor.logo} alt={sponsor.name} className="max-w-full max-h-full object-contain" />
+                  ) : (
+                    <div className="text-white/40 text-center">
+                      <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">LOGO</div>
+                      <div className="text-xs sm:text-sm">{sponsor.name}</div>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-            <div className="sponsor-card bg-white/10 backdrop-blur-md rounded-xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all w-48 sm:w-56 md:w-64 h-32 sm:h-36 md:h-40 flex items-center justify-center">
-              <div className="text-white/40 text-center">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">LOGO</div>
-                <div className="text-xs sm:text-sm">Gold Sponsor</div>
-              </div>
-            </div>
-            <div className="sponsor-card bg-white/10 backdrop-blur-md rounded-xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all w-48 sm:w-56 md:w-64 h-32 sm:h-36 md:h-40 flex items-center justify-center">
-              <div className="text-white/40 text-center">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">LOGO</div>
-                <div className="text-xs sm:text-sm">Gold Sponsor</div>
-              </div>
-            </div>
-          </div>
+          )}
 
-          {/* Tier 3 Sponsors - Smallest */}
-          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-5 md:gap-6">
-            <div className="sponsor-card bg-white/10 backdrop-blur-md rounded-lg p-4 sm:p-5 border border-white/20 hover:bg-white/15 transition-all w-32 sm:w-40 md:w-44 h-24 sm:h-28 md:h-32 flex items-center justify-center">
-              <div className="text-white/40 text-center">
-                <div className="text-lg sm:text-xl md:text-2xl font-bold mb-1">LOGO</div>
-                <div className="text-[9px] sm:text-[10px]">Silver</div>
-              </div>
+          {/* Silver Sponsors */}
+          {sponsors.filter(s => s.tier === 'silver').length > 0 && (
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-5 md:gap-6">
+              {sponsors.filter(s => s.tier === 'silver').map((sponsor) => (
+                <div key={sponsor.id} className="sponsor-card bg-white/10 backdrop-blur-md rounded-lg p-4 sm:p-5 border border-white/20 hover:bg-white/15 transition-all w-32 sm:w-40 md:w-44 h-24 sm:h-28 md:h-32 flex items-center justify-center">
+                  {sponsor.logo ? (
+                    <img src={sponsor.logo} alt={sponsor.name} className="max-w-full max-h-full object-contain" />
+                  ) : (
+                    <div className="text-white/40 text-center">
+                      <div className="text-lg sm:text-xl md:text-2xl font-bold mb-1">LOGO</div>
+                      <div className="text-[9px] sm:text-[10px]">{sponsor.name}</div>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-            <div className="sponsor-card bg-white/10 backdrop-blur-md rounded-lg p-4 sm:p-5 border border-white/20 hover:bg-white/15 transition-all w-32 sm:w-40 md:w-44 h-24 sm:h-28 md:h-32 flex items-center justify-center">
-              <div className="text-white/40 text-center">
-                <div className="text-lg sm:text-xl md:text-2xl font-bold mb-1">LOGO</div>
-                <div className="text-[9px] sm:text-[10px]">Silver</div>
-              </div>
-            </div>
-            <div className="sponsor-card bg-white/10 backdrop-blur-md rounded-lg p-4 sm:p-5 border border-white/20 hover:bg-white/15 transition-all w-32 sm:w-40 md:w-44 h-24 sm:h-28 md:h-32 flex items-center justify-center">
-              <div className="text-white/40 text-center">
-                <div className="text-lg sm:text-xl md:text-2xl font-bold mb-1">LOGO</div>
-                <div className="text-[9px] sm:text-[10px]">Silver</div>
-              </div>
-            </div>
-            <div className="sponsor-card bg-white/10 backdrop-blur-md rounded-lg p-4 sm:p-5 border border-white/20 hover:bg-white/15 transition-all w-32 sm:w-40 md:w-44 h-24 sm:h-28 md:h-32 flex items-center justify-center">
-              <div className="text-white/40 text-center">
-                <div className="text-lg sm:text-xl md:text-2xl font-bold mb-1">LOGO</div>
-                <div className="text-[9px] sm:text-[10px]">Silver</div>
-              </div>
-            </div>
-            <div className="sponsor-card bg-white/10 backdrop-blur-md rounded-lg p-4 sm:p-5 border border-white/20 hover:bg-white/15 transition-all w-32 sm:w-40 md:w-44 h-24 sm:h-28 md:h-32 flex items-center justify-center">
-              <div className="text-white/40 text-center">
-                <div className="text-lg sm:text-xl md:text-2xl font-bold mb-1">LOGO</div>
-                <div className="text-[9px] sm:text-[10px]">Silver</div>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </section>
       </main>

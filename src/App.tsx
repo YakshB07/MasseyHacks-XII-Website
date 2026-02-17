@@ -653,12 +653,7 @@ function App() {
                 <div key={sponsor.id} className="sponsor-card bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-white/15 transition-all w-64 sm:w-80 md:w-96 h-40 sm:h-48 md:h-56 flex items-center justify-center">
                   {sponsor.logo ? (
                     <img src={sponsor.logo} alt={sponsor.name} className="max-w-full max-h-full object-contain" />
-                  ) : (
-                    <div className="text-white/40 text-center">
-                      <div className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">LOGO</div>
-                      <div className="text-sm sm:text-base">{sponsor.name}</div>
-                    </div>
-                  )}
+                  ) : null}
                 </div>
               ))}
             </div>
@@ -671,12 +666,7 @@ function App() {
                 <div key={sponsor.id} className="sponsor-card bg-white/10 backdrop-blur-md rounded-xl p-5 sm:p-6 border border-white/20 hover:bg-white/15 transition-all w-48 sm:w-56 md:w-64 h-32 sm:h-36 md:h-40 flex items-center justify-center">
                   {sponsor.logo ? (
                     <img src={sponsor.logo} alt={sponsor.name} className="max-w-full max-h-full object-contain" />
-                  ) : (
-                    <div className="text-white/40 text-center">
-                      <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">LOGO</div>
-                      <div className="text-xs sm:text-sm">{sponsor.name}</div>
-                    </div>
-                  )}
+                  ) : null}
                 </div>
               ))}
             </div>
@@ -689,12 +679,7 @@ function App() {
                 <div key={sponsor.id} className="sponsor-card bg-white/10 backdrop-blur-md rounded-lg p-4 sm:p-5 border border-white/20 hover:bg-white/15 transition-all w-32 sm:w-40 md:w-44 h-24 sm:h-28 md:h-32 flex items-center justify-center">
                   {sponsor.logo ? (
                     <img src={sponsor.logo} alt={sponsor.name} className="max-w-full max-h-full object-contain" />
-                  ) : (
-                    <div className="text-white/40 text-center">
-                      <div className="text-lg sm:text-xl md:text-2xl font-bold mb-1">LOGO</div>
-                      <div className="text-[9px] sm:text-[10px]">{sponsor.name}</div>
-                    </div>
-                  )}
+                  ) : null}
                 </div>
               ))}
             </div>
